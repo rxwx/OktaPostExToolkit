@@ -9,8 +9,8 @@ OKTA_API_OAUTH_TOKEN = "/oauth2/token"
 OKTA_API_CREATE_TOKEN = "/api/v1/tokens"
 OKTA_API_CREATE_DOMAIN = "/api/1/internal/app/activedirectory/"
 OKTA_API_INIT_AGENT = "/api/1/internal/app/activedirectory/[DOMAIN_ID]/agent?name=[HOSTNAME]"
-OKTA_API_CHECKIN_AGENT = "/api/1/internal/app/activedirectory/[DOMAIN_ID]/agent/[AGENT_ID]/actionResult?agentVersion=3.16.0.0"
-OKTA_API_ACTION = "/api/1/internal/app/activedirectory/[DOMAIN_ID]/agent/[AGENT_ID]/nextAction?agentVersion=3.16.0&pollid=[POLL_ID]"
+OKTA_API_CHECKIN_AGENT = "/api/1/internal/app/activedirectory/[DOMAIN_ID]/agent/[AGENT_ID]/actionResult?agentVersion=1"
+OKTA_API_ACTION = "/api/1/internal/app/activedirectory/[DOMAIN_ID]/agent/[AGENT_ID]/nextAction?agentVersion=1&pollid=[POLL_ID]"
 OKTA_API_ACTION_RESULT = "/api/1/internal/app/activedirectory/[DOMAIN_ID]/agent/[AGENT_ID]/actionResult?responseId=[RESPONSE_ID]"
 
 class OktaADAgent:

